@@ -15,10 +15,8 @@ export default function UserLogin() {
   const handleLogin = async () => {
     setLoading(true);
     try {
-      // Firebase Auth expects email, not just username
       await signInWithEmailAndPassword(auth, username, password);
-      Alert.alert('Success', 'Login successful!');
-      // TODO: Navigate to your app's main screen here
+      router.replace('/(tabs)/index'); // Navigate to dashboard with correct path
     } catch (error: any) {
       Alert.alert('Login Error', error.message);
     } finally {

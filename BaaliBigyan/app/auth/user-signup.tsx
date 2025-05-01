@@ -5,7 +5,6 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebaseConfig';
 import { useRouter } from 'expo-router';
-
 export default function UserSignUp() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -43,12 +42,15 @@ export default function UserSignUp() {
           />
           <Text className="text-lg font-bold text-[#1abc9c] mt-2">BAALI BIGYAN</Text>
         </View>
+
         <Ionicons name="person-add" size={60} color="black" style={{ marginBottom: 8 }} />
         <Text className="text-xl font-bold text-center">USER SIGN UP</Text>
+
+        {/* Email */}
         <View className="flex-row items-center border-b border-gray-400 mt-6 w-full">
           <Ionicons name="at" size={20} color="gray" style={{ marginRight: 4 }} />
           <TextInput
-            className="flex-1 py-2 text-gray-700"
+            className="flex-1 py-2 text-gray-700 bg-transparent"
             placeholder="Enter your email"
             value={email}
             onChangeText={setEmail}
@@ -57,10 +59,12 @@ export default function UserSignUp() {
             placeholderTextColor="#aaa"
           />
         </View>
+
+        {/* Password */}
         <View className="flex-row items-center border-b border-gray-400 mt-6 w-full">
           <Ionicons name="lock-closed-outline" size={20} color="gray" style={{ marginRight: 4 }} />
           <TextInput
-            className="flex-1 py-2 text-gray-700"
+            className="flex-1 py-2 text-gray-700 bg-transparent"
             placeholder="*************"
             value={password}
             onChangeText={setPassword}
@@ -68,10 +72,12 @@ export default function UserSignUp() {
             placeholderTextColor="#aaa"
           />
         </View>
+
+        {/* Confirm Password */}
         <View className="flex-row items-center border-b border-gray-400 mt-6 w-full">
           <Ionicons name="lock-closed-outline" size={20} color="gray" style={{ marginRight: 4 }} />
           <TextInput
-            className="flex-1 py-2 text-gray-700"
+            className="flex-1 py-2 text-gray-700 bg-transparent"
             placeholder="Confirm password"
             value={confirmPassword}
             onChangeText={setConfirmPassword}
@@ -79,6 +85,8 @@ export default function UserSignUp() {
             placeholderTextColor="#aaa"
           />
         </View>
+
+        {/* Sign Up Button */}
         <TouchableOpacity
           onPress={handleSignUp}
           className="mt-6 w-full bg-yellow-300 rounded-xl py-2 shadow-md"
@@ -88,15 +96,19 @@ export default function UserSignUp() {
             {loading ? 'Signing up...' : 'Sign Up'}
           </Text>
         </TouchableOpacity>
+
+        {/* Already have account */}
         <View className="flex-row justify-center items-center mt-6">
           <Text className="text-black">Already have an account? </Text>
           <TouchableOpacity onPress={() => router.replace('/auth/user-login')}>
             <Text className="text-blue-700 font-semibold">Login</Text>
           </TouchableOpacity>
         </View>
+
+        {/* Doctor Sign Up */}
         <View className="flex-row justify-center items-center mt-2">
           <Text className="text-black">Are you a doctor? </Text>
-          <TouchableOpacity onPress={() => router.replace('/auth/doctor-signup' as any)}>
+          <TouchableOpacity onPress={() => router.replace('/auth/doctor-signup')}>
             <Text className="text-blue-700 font-semibold">Doctor Sign Up</Text>
           </TouchableOpacity>
         </View>
